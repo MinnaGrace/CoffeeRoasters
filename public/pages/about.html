@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title> About Us</title>
+</head>
+<body>
+  <main>
+    <!-- NavBar -->
+    <nav class="navbar">
+      <img src="../starter-code/assets/shared/desktop/logo.svg" alt="logo" class="nav-logo">
+      <ul class="nav-links">
+        <li class="link"><a href="../pages/index.html">HOME</a></li>
+        <li class="link"><a href="../pages/about.html">ABOUT US</a></li>
+        <li class="link"><a href="../pages/products.html">PRODUCTS</a></li>
+        <li class="link"><a href="../pages/plan.html">CREATE YOUR PLAN</a></li>
+         <li class="user-icon link">
+          <i class="far fa-user"></i> <!-- Outlined user icon -->
+        </li>
+        <li class="cart-icon link">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-item-count">3</span>
+        </li>
+
+      </ul>
+    </nav>
+    <section class="about-us">
+      <div class="hero-container">
+        <!-- <img src ="/starter-code/assets/about/desktop/image-hero-whitecup.jpg" alt="coffee-img"> -->
+        <div class="hero-text">
+          <h1>About Us</h1>
+           <p> Coffeeroasters began its journey of exotic discovery in 1999, highlighting stories of 
+          coffee from around the world. We have since been dedicated to bring the perfect cup - from 
+          bean to brew - in every shipment.</p>
+
+        </div>
+        
+      </div>
+
+    </section>
+    <section class="commitment">
+      <div class="cards">
+        <div class="card">
+          <img src="../starter-code/assets/about/desktop/image-commitment.jpg" alt="man making coffee">
+        </div>
+        <div class="commitment-text">
+          <h2> Our commitment </h2>
+          <p>
+            We’re built on a simple mission and a commitment to doing good along the way. We want to 
+            make it easy for you to discover and brew the world’s best coffee at home. It all starts 
+            at the source. To locate the specific lots we want to purchase, we travel nearly 60 days 
+            a year trying to understand the challenges and opportunities in each of these places.
+            We collaborate with exceptional coffee growers and empower a global community of farmers 
+            through with well above fair-trade benchmarks. We also offer training, support farm community 
+            initiatives, and invest in coffee plant science. Curating only the finest blends, we roast 
+            each lot to highlight tasting profiles distinctive to their native growing region.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+    <section class="quality">
+      <div class="cards">
+        <div class="card">
+          <h3> Uncompromising quality</h3>
+          <p class="text">Although we work with growers who pay close attention to all stages of harvest and processing, 
+            we employ, on our end, a rigorous quality control program to avoid over-roasting or baking the 
+            coffee dry. Every bag of coffee is tagged with a roast date and batch number. Our goal is to roast 
+            consistent, user-friendly coffee, so that brewing is easy and enjoyable.
+          </p>
+        </div>
+        <div class="card">
+          <img src="../starter-code/assets/about/desktop/image-quality.jpg" alt="coffee image">
+        </div>
+
+
+      </div>
+
+
+    </section>
+    <section class="headquarters">
+      <h3> Our headquarters</h3>
+      <div class="cards">
+        <div class="card">
+          <img src="../starter-code/assets/about/desktop/illustration-uk.svg" alt="map of united kingdom">
+          <h4> United Kingdom</h4>
+          <p>68 Asfordby Rd<br>
+          <p>Alcaston</p> 
+          <p>SY6 1YA</p>
+          <p>+44 1241 918425</p>
+        </div>
+        <div class="card">
+          <img src="../starter-code/assets/about/desktop/illustration-canada.svg" alt="map of united kingdom">
+          <h4> Canada</h4>
+          <p>1528 Eglinton Avenue</p>
+          <p> Toronto</p>
+          <p>Ontario M4P 1A6</p>
+          <p>+1 416 485 2997</p>
+        </div>
+        <div class="card">
+          <img src="../starter-code/assets/about/desktop/illustration-australia.svg" alt="map of united kingdom">
+          <h4> Australia</h4>
+          <p>36 Swanston Street
+          <p>Kewell</p> 
+          <p>Victoria</p>
+         <p>+1 614 9928 3629</p>
+        </div>
+      </div>
+
+    </section>
+    <div id="cart-overlay" class="overlay"></div> 
+    <div class="cart-container">
+      <aside class="cart">
+        <button class="cart-close">
+          <i class="fas fa-chevron-left" ></i>
+        </button>
+        <header>
+          <h3> Shopping Cart</h3>
+        </header>
+        <div class="cart-items">
+          <article class="cart-item" data-id="">
+            <div class="cart-item-selection">
+              <img src="../starter-code/assets/home/desktop/image-danche.png" alt="" class="cart-item-img">
+              <div class="cart-details">
+                <h4 class="cart-item-name"> Danche</h4>
+                <p class="cart-item-price"> $7</p>
+                <button class="remove-cart-item-btn btn">Remove</button>
+              
+              </div>
+            </div> 
+            <div class="cart-item-btns">
+              <button class="cart-item-increase-btn">
+                <i class="fas fa-chevron-up" ></i>
+              </button>
+              <p class="cart-item-amount">1</p>
+              <button class="cart-item-decrease-btn">
+                <i class="fas fa-chevron-down" ></i>
+              </button>
+            </div>
+
+          </article>
+
+        </div>
+        <footer>
+          <h3 class="cart-total">Total: $<span class="cart-amount-total"></span></h3>
+          <a class="btn-1 cart-btn">Checkout</a>
+        </footer>
+
+      </aside>
+    </div>
+    <footer>
+      <footer class="footer">
+        <div class="container">
+          <img src="../starter-code/assets/shared/desktop/logo-light.svg" alt="logo" class="footer-logo">
+          <ul class="footer-links">
+            <li class="link"><a href="index.html">HOME</a></li>
+            <li class="link"><a href="about.html">ABOUT US</a></li>
+            <li class="link"><a href="plan.html">CREATE YOUR PLAN</a></li>
+    
+          </ul>
+          <div class="social-links">
+            <img src="../starter-code/assets/shared/desktop/icon-facebook.svg" alt="social-link" class="link">
+            <img src="../starter-code/assets/shared/desktop/icon-twitter.svg" alt="social-link"class="link" >
+            <img src="../starter-code/assets/shared/desktop/icon-instagram.svg" alt="social-link"class="link">
+            
+          </div>
+        </div>
+    
+      </footer>
+    </footer>
+  </main>
+
+  <script type="module" src="../about.js"></script>
+</body>
+
+</html>

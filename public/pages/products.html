@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <title> Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <img src="../starter-code/assets/shared/desktop/logo.svg" alt="logo" class="nav-logo">
+      <ul class="nav-links">
+        <li class="link"><a href="../pages/index.html">HOME</a></li>
+        <li class="link"><a href="../pages/about.html">ABOUT US</a></li>
+        <li class="link"><a href="../products.js">PRODUCTS</a></li>
+        <li class="link"><a href="../pages/plan.html">CREATE YOUR PLAN</a></li>
+        <li class="user-icon link">
+          <i class="far fa-user"></i> <!-- Outlined user icon -->
+        </li>
+        <li class="cart-icon link">
+          <i class="fa fa-shopping-cart"></i></i>
+          <span class="cart-item-count">3</span>
+        </li>
+        </ul>
+    </nav>
+    <section class="products-container">
+      <div class="products">
+
+      </div>
+
+    </section>
+    <div id="cart-overlay" class="overlay"></div> 
+    <div class="cart-container">
+      <aside class="cart">
+        <button class="cart-close">
+          <i class="fas fa-chevron-left" ></i>
+        </button>
+        <header>
+          <h3> Shopping Cart</h3>
+        </header>
+        <div class="cart-items">
+          <article class="cart-item" data-id="">
+            <div class="cart-item-selection">
+              <img src="../starter-code/assets/home/desktop/image-danche.png" alt="" class="cart-item-img">
+              <div class="cart-details">
+                <h4 class="cart-item-name"> Danche</h4>
+                <p class="cart-item-price"> $7</p>
+                <button class="remove-cart-item-btn btn">Remove</button>
+              
+              </div>
+            </div> 
+            <div class="cart-item-btns">
+              <button class="cart-item-increase-btn">
+                <i class="fas fa-chevron-up" ></i>
+              </button>
+              <p class="cart-item-amount">1</p>
+              <button class="cart-item-decrease-btn">
+                <i class="fas fa-chevron-down" ></i>
+              </button>
+            </div>
+
+          </article>
+
+        </div>
+        <footer>
+          <h3 class="cart-total">Total: $<span class="cart-amount-total"></span></h3>
+          <a class="btn-1 cart-btn">Checkout</a>
+        </footer>
+      </aside>
+    </div>
+  </div> 
+
+<script type="module" src="../products.js"></script>
+</body>
+</html>

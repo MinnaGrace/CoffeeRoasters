@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="../starter-code/assets/shared/desktop/logo.svg" alt="logo" class="nav-logo">
+        <ul class="nav-links">
+            <li class="link"><a href="../pages/index.html">HOME</a></li>
+            <li class="link"><a href="../pages/about.html">ABOUT US</a></li>
+            <li class="link"><a href="../pages/products.html">PRODUCTS</a></li>
+            <li class="link"><a href="../pages/plan.html">CREATE YOUR PLAN</a></li>
+            <li class="user-icon link">
+            <i class="far fa-user"></i> <!-- Outlined user icon -->
+            </li>
+            <li class="cart-icon link">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-item-count">3</span>
+            </li>
+
+        </ul>
+    </nav>
+    <main class="login-register-container">
+        <section class="login-form-container">
+            <header>
+                <h3> Login</h3>
+            </header>
+   
+            <form id ="login-user">
+
+                <!-- <label for="name"></label>
+                <input type="name" id="name-login" name="name" placeholder="Name"> -->
+
+                <label for="email"></label>
+                <input type="email" id="email-login" name="email" placeholder="Email">
+
+                <label for="password"></label>
+                <input type="password" id="password-login" placeholder="Password">
+
+                <input type="submit" value="Login" class="btn-1">
+                <div class="login-error-message"></div>
+            </form>
+            <button class="login-signup-btn"> Sign up</button>
+        </section>  
+
+        <section class="register-form-container hidden">
+            <header>
+                <h3> Register</h3>
+            </header>
+   
+            <form id ="register-user">
+
+                <label for="name"></label>
+                <input type="name" id="name-register" name="name" placeholder="Name">
+
+                <label for="email"></label>
+                <input type="email" id="email-register" name="email" placeholder="Email">
+
+                <label for="password"></label>
+                <input type="password" id="password-register" placeholder="Password">
+
+                <input type="submit" value="Register" class="btn-1">
+                <div class="register-error-message"></div>
+            </form>
+            <button class="register-login-btn"> Log in</button>
+        </section>  
+    
+    </main>    
+<script type="module" src="../login.js"></script>
+</body>
+</html>
