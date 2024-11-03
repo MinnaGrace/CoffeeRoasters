@@ -7,7 +7,7 @@ const {createReview,
     getAllReviews,
     getSingleReview,
     updateReview,
-    deleteReview
+    deleteReview,
 } = require('../controllers/reviewController')
 
 

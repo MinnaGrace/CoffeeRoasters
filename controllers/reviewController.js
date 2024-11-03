@@ -2,6 +2,7 @@ const Review = require('../models/reviews')
 const Product = require('../models/product')
 const selectedError = require('../errors')
 const {StatusCodes} = require('http-status-codes')
+const { checkPermissions } = require('../utils')
 
 
 
@@ -26,16 +27,58 @@ const createReview = async(req,res)=>{
     res.status(StatusCodes.CREATED).json({review})
 }
 const getAllReviews= async(req,res)=>{
-    res.send('get all reviews')
+    const reviews = await Review.find({}).populate({
+        path:'product',
+        select:'name'
+    }).populate({
+        path:'user',
+        select:'name'
+    })
+    res.status(StatusCodes.OK).json({reviews, count:reviews.length})
 }
 const getSingleReview= async(req,res)=>{
-    res.send('get single review')
+    const{id:reviewId} =req.params
+    const review = await Review.findOne({_id: reviewId})
+    if(!review){
+        throw new selectedError.NotFoundError("review not found")
+    }
+    res.status(StatusCodes.OK).json({review})
 }
 const updateReview = async(req,res)=>{
-    res.send('update review')
+    const {id:reviewId} = req.params
+    const review = await Review.findOneAndUpdate({_id:reviewId})
+    const{rating,title,comment} =req.body
+    review.rating = rating
+    review.title = title
+    review.comment= comment
+
+    await review.save()
+
+    res.status(StatusCodes.OK).json({review})
 }
-const deleteReview = async(req,res)=>{
-    res.send('delete review')
+
+const deleteReview = async (req, res) => {
+    const { id: reviewId } = req.params;
+  
+    const review = await Review.findOne({ _id: reviewId });
+  
+    if (!review) {
+      throw new selectedError.NotFoundError(`No review with id ${reviewId}`);
+    }
+  
+    checkPermissions(req.user, review.user);
+
+    await review.deleteOne();
+    res.status(StatusCodes.OK).json({ msg: 'Success! Review removed' });
+  };
+
+
+const singleProductReviews = async (req,res)=>{
+    const{id:productId} = req.params
+    const reviews = await Review.find({product: productId})
+
+    res.status(StatusCodes.OK).json({reviews})
+    
 }
 
 module.exports = {
@@ -43,5 +86,6 @@ module.exports = {
     getAllReviews,
     getSingleReview,
     updateReview,
-    deleteReview
+    deleteReview,
+    singleProductReviews
 }
