@@ -42,9 +42,19 @@ const ProductSchema = new mongoose.Schema({
         required:true
     },
 
-},
-    {timestamps:true}
+},  // timestamps and allows prdoucts model to accept virtuals
+    {timestamps:true, toJSON:{virtuals:true}, toObject:{virtuals:true}}
 
 )
+//populates review in products
+ProductSchema.pre(
+    "deleteOne",
+    { document: true, query: false },
+    async function () {
+      await this.model("Review").deleteMany({ product: this._id });
+    }
+  );
+  
+
 
 module.exports = mongoose.model('Product', ProductSchema)
