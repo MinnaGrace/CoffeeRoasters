@@ -7,7 +7,7 @@ const {
     uploadImage
 } = require('../controllers/productController');
 
-
+const{singleProductReviews} = require('../controllers/reviewController')
 const express = require('express');
 const { authenticateUser, authorizePermissions } = require('../middleware/authentication');
 const router = express.Router()
@@ -27,6 +27,8 @@ router
 .delete([authenticateUser, authorizePermissions('admin')], deleteProduct)
 .get(getSingleProduct)
 
+
+router.route('/:id/reviews').get(singleProductReviews)
 
 
 
