@@ -18,15 +18,19 @@ const connectDB = require('./database/connect')
 
 const authRouter = require('./routes/authRoutes')
 const userRouter = require('./routes/userRoutes')
+const productRouter =  require('./routes/productRoutes')
+const reviewRouter = require('./routes/reviewRoutes')
 //middleware
 
 const notFoundMiddleware = require('./middleware/notFound')
-const errorHandlerMiddleware = require('./middleware/error-handler')
+const errorHandlerMiddleware = require('./middleware/error-handler');
+const fileUpload = require('express-fileupload');
 
 app.use(cookieParser(process.env.JWT_SECRET))
 app.use(morgan('tiny'))
 app.use(cors())
 app.use(express.json())
+app.use(fileUpload())
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -35,6 +39,8 @@ app.get('/', (req,res)=>{
 })
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/user', userRouter)
+app.use('/api/v1/products', productRouter)
+app.use('/api/v1/review', reviewRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
