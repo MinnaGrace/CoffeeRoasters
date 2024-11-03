@@ -1,4 +1,5 @@
 const Product = require('../models/product')
+const Review= require('../models/reviews')
 const selectedError = require('../errors')
 const {StatusCodes} = require('http-status-codes')
 const path = require('path');
@@ -14,7 +15,7 @@ const getAllProducts = async(req,res)=>{
 }
 const getSingleProduct = async(req,res)=>{
     const{id:productId} =  req.params
-    const product = await Product.find({_id: productId})
+    const product = await Product.find({_id: productId}).populate("reviews")
     res.status(StatusCodes.OK).json({product})
 }
 const updateProduct = async(req,res)=>{
@@ -29,15 +30,20 @@ const updateProduct = async(req,res)=>{
 
     res.status(StatusCodes.OK).json(product)
 }
-const deleteProduct = async(req,res)=>{
-    const{id:productId} = req.params;
-    const product = await Product.findOne({_id:productId})
-    if(!product){
-        throw new selectedError.NotFoundError("product not found")
-    }
-    await product.remove()
-    res.staus(StatusCodes.OK).json({msg:"product removed"})
-}
+const deleteProduct = async (req, res) => {
+  const { id: productId } = req.params;
+  const product = await Product.findOne({ _id: productId });
+
+  if (!product) {
+      throw new selectedError.NotFoundError("Product not found");
+  }
+ 
+  await product.deleteOne()
+  
+  // The `post` hook will delete associated reviews automatically
+  res.status(StatusCodes.OK).json({ msg: "Product removed" });
+};
+
 const uploadImage = async(req,res)=>{
     if (!req.files) {
         throw new selectedError.BadRequestError('No File Uploaded');
@@ -63,7 +69,7 @@ const uploadImage = async(req,res)=>{
       await productImage.mv(imagePath);
       res.status(StatusCodes.OK).json({ image: `/uploads/${productImage.name}` });
 }
-// public/uploads/au-shield-2.svg
+
 
 
 module.exports ={
