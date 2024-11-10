@@ -32,6 +32,45 @@ const ReviewSchema = new mongoose.Schema({
    
 },{timestamps:true}
 )
-ReviewSchema.index({product:1, user:1},{unique:true})
 
+ReviewSchema.index({product:1, user:1},{unique:true})
+// statics, not methods becasue we want to call the function on the schema 
+// not  the instance
+ReviewSchema.statics.calculateAverageRating = async function (productId) {
+    
+  const result = await this.aggregate([
+    { $match: { product: productId } },
+    {
+      $group: {
+        _id: null,
+        averageRating: { $avg: "$rating" },
+        reviewCount: { $sum: 1 },
+      },
+    },
+  ]);
+  try{
+   
+
+    await this.model("Product").findOneAndUpdate(
+      { _id: productId },
+
+      {
+        reviewCount: result[0]?.reviewCount || 0,
+        averageRating: Math.ceil(result[0]?.averageRating || 0),
+      }
+    );
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+  
+}
+
+ReviewSchema.post('save', async function(){
+    await this.constructor.calculateAverageRating(this.product);
+})
+ReviewSchema.post("findOneAnddelete", async function () {
+    await this.constructor.calculateAverageRating(this.product);
+});
 module.exports = mongoose.model('Review', ReviewSchema)
