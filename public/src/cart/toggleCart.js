@@ -18,3 +18,4 @@ cartCloseBtn.addEventListener('click', ()=>{
 export const openCart = () => {
     //cartOverlay.classList.add('show')
 };
+

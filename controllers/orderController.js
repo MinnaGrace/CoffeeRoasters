@@ -25,17 +25,29 @@ const { checkPermissions } = require("../utils");
           "No product with corresponding ID"
         );
       }
-      const { name, price, image, _id } = product;
+      const { name, price, image, _id, amount} = product;
       const singleOrderItem = {
         name,
         price,
         image,
+        amount,
         product: _id,
         quantity: item.quantity, // Ensure quantity is correctly retrieved from item
       };
 
       orderItems.push(singleOrderItem);
-      subtotal += item.quantity * price;
+      let size = 0;
+
+      if(amount == 250){
+        size = 1
+      }
+      else if(amount==500){
+        size = 5
+      }
+      else if(size = 1000){
+        size = 10
+      }
+      subtotal += (item.quantity * price) + size;
     }
 
     const total = tax + subtotal + shippingFee;
@@ -49,9 +61,12 @@ const { checkPermissions } = require("../utils");
       clientSecret: "paymentIntent.client_secret",
       paymentIntent: "paymentIntent.id",
       user: req.user.userId,
+      name:req.user.name
+      
+      
     });
 
-    res.status(StatusCodes.OK).json({ order });
+    res.status(StatusCodes.OK).json({ order, total});
   };
 
 

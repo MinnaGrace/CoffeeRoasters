@@ -9,6 +9,11 @@
       type: Number,
       required: true,
     },
+    amount:{
+        type:Number,
+        required:true,
+        default:250
+    },
     price: {
       type: Number,
       required: true,
@@ -28,15 +33,17 @@
  const orderSchema = mongoose.Schema({
     tax:{
         type:Number,
-        required:true
+        required:true,
     },
     shippingFee:{
         type:Number,
-        required:true
+        required:true,
+        deafult:0
     },
     subtotal:{
         type:Number,
-        required:true
+        required:true,
+    
     },
     orderItems:[singleOrderItem],
     status:{
@@ -49,6 +56,10 @@
         ref:'User',
         required:true
     },
+    name: { 
+    type: String,
+    required: true,
+  },
     clientSecret:{
         type:String,
         required:true
