@@ -43,7 +43,7 @@ const userSchema = mongoose.Schema({
 // we are using it to hash our passwords
 
 userSchema.pre('save', async function(){
-    if(!this.isMofified('password')) return
+    if(!this.isModified('password')) return
     // number of rounds of hashing
     const salt = await bcrypt.genSalt(10)
     // refers to current password

@@ -19,7 +19,8 @@
             <li class="link"><a href="../pages/products.html">PRODUCTS</a></li>
             <li class="link"><a href="../pages/plan.html">CREATE YOUR PLAN</a></li>
             <li class="user-icon link">
-            <i class="far fa-user"></i> <!-- Outlined user icon -->
+            <!-- Outlined user icon -->
+                <a href="../pages/login.html"> <i class="far fa-user"></i> </a>
             </li>
             <li class="cart-icon link">
                 <i class="fas fa-shopping-cart"></i>
@@ -28,30 +29,29 @@
 
         </ul>
     </nav>
-    <main class="login-register-container">
-        <section class="login-form-container">
-            <header>
-                <h3> Login</h3>
-            </header>
    
-            <form id ="login-user" action="/api/v1/auth/login">
+    <div class="login-register-container">
+        <section class="login-form-container">
+            <header> <h3> Login</h3> </header>
+   
+                <form id ="login-user" action="/api/v1/auth/login" method="POST">
+                
+                    <label for="email"></label>
+                    <input type="email" id="email-login" name="email" placeholder="Email">
 
-                <label for="email"></label>
-                <input type="email" id="email-login" name="email" placeholder="Email">
+                    <label for="password"></label>
+                    <input type="password" id="password-login" placeholder="Password">
 
-                <label for="password"></label>
-                <input type="password" id="password-login" placeholder="Password">
+                    <input type="submit" value="Login" class="btn-1">
+                    <div class="login-error-message"></div>
+                </form>
+                <button class="login-signup-btn"> Sign up</button>
+            </section>  
 
-                <input type="submit" value="Login" class="btn-1">
-                <div class="login-error-message"></div>
-            </form>
-            <button class="login-signup-btn"> Sign up</button>
-        </section>  
-
-        <section class="register-form-container hidden">
-            <header>
+            <section class="register-form-container hidden">
+                <header>
                 <h3> Register</h3>
-            </header>
+                </header>
    
             <form id ="register-user">
 
@@ -66,11 +66,17 @@
 
                 <input type="submit" value="Register" class="btn-1">
                 <div class="register-error-message"></div>
+                
             </form>
             <button class="register-login-btn"> Log in</button>
         </section>  
+   
+       
     
-    </main>    
+ 
+    </div>
+
+            
 <script type="module" src="../login.js"></script>
 </body>
 </html>

@@ -936,7 +936,7 @@ a.cart-btn.btn-1{
 
 
 
-/* Login Page */
+
 .register-form-container,
 .login-form-container{
     display: flex;
@@ -945,8 +945,9 @@ a.cart-btn.btn-1{
     justify-content: center;
     width: 100%;
     height:100%;
-    
+   margin-top: 5rem;    
 }
+
 
 #register-user,
 #login-user{
@@ -986,16 +987,18 @@ a.cart-btn.btn-1{
     margin-bottom: 5rem; 
     width:100%;
     height:100%;
+    flex:1;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 
 }
 .hidden{
     display: none;
 }
 
-/* Product Page */
+/*Product Page */
 
 /* Loading */
 .products-loading {
@@ -1010,18 +1013,62 @@ a.cart-btn.btn-1{
   margin: 0 auto;
   margin-top: 4rem;
 }
-.products-container{
- width: 100%;
-  height: 100vh; /* This makes the container take up the full viewport height */
-  display: flex;
-  flex-direction: column;
+.product-img{
+    width:100%;
+    width:300px
 }
+.products{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap:6rem;
+    padding: 0;
+    margin: 0 auto;
+    margin-top:7rem;
+    margin-bottom:7rem
+
+}
+.products-container footer h4{
+  margin:0
+}
+
 .product-container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  position: relative; /* Allows absolute positioning of child elements */
+  display: flex;
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Centers content horizontally */
+}
+.product-icons{
+  display: flex; /* Use flexbox to arrange icons horizontally */
+  gap: 0.5rem; /* Space between icons */
+  justify-content: center; /* Ensure icons are centered in their container */
+  margin-top: 1rem;
+
+} 
+.product-icon{
+  display: flex; /* Center icon within button */
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem; /* Adjust button size */
+  height: 2.5rem;
+  border-radius: 50%; /* Make the button round */
+  background-color: #f4f4f4; /* Light background for visibility */
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
 }
 .products-container .products-header{
     text-align: center;
     color:var(--dark-blue)
 }
+.product {
+  margin: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--bg-color);
+  border-radius: var(--border-radius);
+ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+}
+
+
